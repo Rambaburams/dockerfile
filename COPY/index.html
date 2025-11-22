@@ -15,7 +15,6 @@
             width: 350px;
             padding: 40px;
             background: white;
-            box-sizing: border-box;
             box-shadow: 0 15px 25px rgba(0,0,0,.5);
             border-radius: 10px;
             position: absolute;
@@ -24,62 +23,92 @@
             transform: translate(-50%, -50%);
         }
 
-        .login-box h2 {
-            margin: 0 0 30px;
-            padding: 0;
+        h2 {
             text-align: center;
-            color: #333;
+            margin-bottom: 25px;
         }
 
-        .login-box .user-box {
-            position: relative;
-        }
-
-        .login-box .user-box input {
+        .user-box input {
             width: 100%;
             padding: 10px 0;
             font-size: 16px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             border: none;
             border-bottom: 1px solid #333;
             outline: none;
-            background: transparent;
         }
 
-        .login-box form input[type="submit"] {
-            background: #2980b9;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
+        button {
             width: 100%;
+            padding: 10px;
+            background: #2980b9;
+            border: none;
+            color: white;
             font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        .login-box form input[type="submit"]:hover {
+        button:hover {
             background: #8e44ad;
+        }
+
+        .success-box {
+            display: none;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
+
 <body>
 
-    <div class="login-box">
-        <h2>Login</h2>
-        <form>
-            <div class="user-box">
-                <input type="text" name="username" required>
-                <label>Username</label>
-            </div>
+<!-- LOGIN FORM -->
+<div class="login-box" id="loginForm">
+    <h2>Login</h2>
 
-            <div class="user-box">
-                <input type="password" name="password" required>
-                <label>Password</label>
-            </div>
-
-            <input type="submit" value="Login">
-        </form>
+    <div class="user-box">
+        <input type="text" id="username" placeholder="Username" required>
     </div>
+
+    <div class="user-box">
+        <input type="password" id="password" placeholder="Password" required>
+    </div>
+
+    <button onclick="login()">Login</button>
+</div>
+
+<!-- SUCCESS MESSAGE -->
+<div class="success-box" id="successMessage">
+    ✅ Login Successful <br><br>
+    Welcome, <span id="user"></span> 🎉
+</div>
+
+<script>
+    function login() {
+        const username = document.getElementById("username").value
+        const password = document.getElementById("password").value
+
+        if(username === "" || password === "") {
+            alert("Please fill all fields")
+            return
+        }
+
+        // Fake login validation
+        if(username === "admin" && password === "1234") {
+            document.getElementById("loginForm").style.display = "none"
+            document.getElementById("successMessage").style.display = "block"
+            document.getElementById("user").innerText = username
+        } else {
+            alert("Invalid username or password ❌")
+        }
+    }
+</script>
 
 </body>
 </html>
