@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #2980b9, #8e44ad);
+            font-family: Arial, sans-serif;
+            height: 100vh;
+        }
+
+        .login-box {
+            width: 350px;
+            padding: 40px;
+            background: white;
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0,0,0,.5);
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .login-box h2 {
+            margin: 0 0 30px;
+            padding: 0;
+            text-align: center;
+            color: #333;
+        }
+
+        .login-box .user-box {
+            position: relative;
+        }
+
+        .login-box .user-box input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 16px;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid #333;
+            outline: none;
+            background: transparent;
+        }
+
+        .login-box form input[type="submit"] {
+            background: #2980b9;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .login-box form input[type="submit"]:hover {
+            background: #8e44ad;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>Login</h2>
+        <form>
+            <div class="user-box">
+                <input type="text" name="username" required>
+                <label>Username</label>
+            </div>
+
+            <div class="user-box">
+                <input type="password" name="password" required>
+                <label>Password</label>
+            </div>
+
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+</body>
+</html>
